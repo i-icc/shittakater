@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid" style="background: url(/static/images/icon2.png);background-size: contain;background-repeat: no-repeat;background-position: center;background-color:rgba(7, 3, 29, 0.829);background-blend-mode:nomal;height: 85vh;width: 100vw;">
+    <div class="row justify-content-center align-items-center" style="min-height: 40vh;max-width: 100vw;">
+    <h1 class="text-white" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">知ったかぶりたいコンテンツはありますか？</h1>
+    </div>
+    <div class="row justify-content-center" style="min-height: 40vh;max-width: 100vw;">
+        <form action="/search" method="post">
+            <input type="textarea" name="word" pattern=".*\S+.*" required placeholder="キーワード" size="25">
+            <input type="submit" value="生成">
+        </form>
+    </div>
+</div>
+{% endblock %}

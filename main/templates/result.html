@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>
+<div class="jumbotron">
+    <div class="container">
+        <h1>「{{result["word"]}}」ね、知ってる知ってる</h1>
+        <div class="container-fluid pb-4">
+            <div class="row">
+                {% for tweet in tweets %}
+                <div class="col-md m-3">
+                    <div class="card" style="width:28rem">
+                        <img class="card-img" src="/static/images/tweetBase.png" alt="ツイート画像">
+                        <div class="card-img-overlay" style="margin-top: 5rem !important;margin-right: 3.25rem !important;margin-left: 3.25rem !important;">
+                            <h5 class="card-title text-primary">#{{result["word"]}}</h5>
+                            <p class="card-text text-align">{{tweet}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <h3>このようなツイートを参考にしています。</h3>
+        <div class="container-fluid">
+            <div class="row">
+                {% for url in result["urls"][:3] %}
+                <div class="col-md">
+                    <blockquote class="twitter-tweet">
+                        <a href={{url}}></a>
+                    </blockquote>
+                </div>
+                {% endfor %}
+            </div>
+            <p class="text-right">and more...(近日実装予定)</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

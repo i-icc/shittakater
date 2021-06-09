@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <h1>処理中にエラーが生じたようです</h1>
+        {% if status != 200 %}
+        <p>ツイート取得時にエラーが発生しました。</p>
+        {% else %}
+        <p>ツイートを十分に取得できませんでした。</p>
+        <p>"{{word}}"はトレンドになっていないようです。</p>
+        {% endif %}
+        <a class="btn btn-primary btn-lg" href="/" role="button">Home へ戻る</a>
+    </div>
+</div>
+{% endblock %}
